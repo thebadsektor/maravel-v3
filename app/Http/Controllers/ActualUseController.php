@@ -14,7 +14,10 @@ class ActualUseController extends Controller
      */
     public function index()
     {
-        //
+        // dd(ActualUse::paginate(15));
+        return view('pages.actual-uses.index', [
+            'actual_uses' => ActualUse::paginate(1),
+        ]);
     }
 
     /**
@@ -24,7 +27,7 @@ class ActualUseController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.actual-uses.create');
     }
 
     /**
@@ -35,7 +38,13 @@ class ActualUseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ActualUse::create([
+            'actual_use' => $request->actual_use,
+            'category' => $request->category,
+            'description' => $request->description,
+        ]);
+
+        return redirect('actual-uses');
     }
 
     /**
@@ -46,7 +55,7 @@ class ActualUseController extends Controller
      */
     public function show(ActualUse $actualUse)
     {
-        //
+        return view('pages.actual-uses.show')->with('actualUse', $actualUse);
     }
 
     /**
@@ -57,7 +66,7 @@ class ActualUseController extends Controller
      */
     public function edit(ActualUse $actualUse)
     {
-        //
+        return view('pages.actual-uses.edit')->with('actualUse', $actualUse);
     }
 
     /**
@@ -69,7 +78,12 @@ class ActualUseController extends Controller
      */
     public function update(Request $request, ActualUse $actualUse)
     {
-        //
+        $actualUse->update([
+            'actual_use' => $request->actual_use,
+            'category' => $request->category,
+            'description' => $request->description
+        ]);
+        return redirect('/actual-use/show/'.$actualUse->id);
     }
 
     /**
@@ -80,6 +94,18 @@ class ActualUseController extends Controller
      */
     public function destroy(ActualUse $actualUse)
     {
-        //
+        $actualUse->delete();
+        return redirect('actual-uses');
+    }
+
+    public function batchDestroy(Request $request)
+    {
+        $ids = $request->input('ids');
+        ActualUse::destroy($ids);
+
+        if($ids == null){
+            return back()->with('error', 'The error message here!');
+        }
+        return redirect()->back();
     }
 }

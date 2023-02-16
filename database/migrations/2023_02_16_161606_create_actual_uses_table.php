@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('actual_uses', function (Blueprint $table) {
             $table->id();
+            $table->string('actual_use');
+            $table->string('category');
+            $table->string('description');
             $table->timestamps();
         });
     }

@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class ActualUse extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'actual_use',
+        'category',
+        'description'
+    ];
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Logs\AuditLogsController;
 use App\Http\Controllers\Logs\SystemLogsController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ActualUseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,6 +60,15 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('users', UsersController::class);
+
+Route::get('/actual-uses', [ActualUseController::class, 'index'])->name('actual-uses');
+Route::get('/actual-use/create', [ActualUseController::class, 'create'])->name('create-actual-use');
+Route::post('/actual-use/store', [ActualUseController::class, 'store'])->name('store-actual-use');
+Route::get('/actual-use/show/{actual_use}', [ActualUseController::class, 'show'])->name('show-actual-use');
+Route::get('/actual-use/edit/{actual_use}', [ActualUseController::class, 'edit'])->name('edit-actual-use');
+Route::put('/actual-use/update/{actual_use}', [ActualUseController::class, 'update'])->name('update-actual-use');
+Route::delete('/actual-use/destroy/{actual_use}', [ActualUseController::class, 'destroy'])->name('destroy-actual-use');
+Route::post('/actual-uses/batch-destroy', [ActualUseController::class, 'batchDestroy'])->name('batch-destroy-actual-uses');
 
 /**
  * Socialite login using Google service
