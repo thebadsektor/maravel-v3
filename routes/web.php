@@ -8,6 +8,7 @@ use App\Http\Controllers\Logs\SystemLogsController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ActualUseController;
+use App\Http\Controllers\AdditionalItemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,6 +62,7 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('users', UsersController::class);
 
+//Actual Use
 Route::get('/actual-uses', [ActualUseController::class, 'index'])->name('actual-uses');
 Route::get('/actual-use/create', [ActualUseController::class, 'create'])->name('create-actual-use');
 Route::post('/actual-use/store', [ActualUseController::class, 'store'])->name('store-actual-use');
@@ -69,6 +71,16 @@ Route::get('/actual-use/edit/{actual_use}', [ActualUseController::class, 'edit']
 Route::put('/actual-use/update/{actual_use}', [ActualUseController::class, 'update'])->name('update-actual-use');
 Route::delete('/actual-use/destroy/{actual_use}', [ActualUseController::class, 'destroy'])->name('destroy-actual-use');
 Route::post('/actual-uses/batch-destroy', [ActualUseController::class, 'batchDestroy'])->name('batch-destroy-actual-uses');
+
+//Additional Item
+Route::get('/items', [AdditionalItemController::class, 'index'])->name('items');
+Route::get('/item/create', [AdditionalItemController::class, 'create'])->name('create-item');
+Route::post('item/store', [AdditionalItemController::class, 'store'])->name('store-item');
+Route::get('/item/show/{item}', [AdditionalItemController::class, 'show'])->name('show-item');
+Route::get('/item/edit/{item}', [AdditionalItemController::class, 'edit'])->name('edit-item');
+Route::put('/item/update/{item}', [AdditionalItemController::class, 'update'])->name('update-item');
+Route::delete('/item/destroy/{item}', [AdditionalItemController::class, 'destroy'])->name('destroy-item');
+Route::post('/item/batch-destroy', [AdditionalItemController::class, 'batchDestroy'])->name('batch-destroy-items');
 
 /**
  * Socialite login using Google service

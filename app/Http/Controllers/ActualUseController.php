@@ -16,7 +16,7 @@ class ActualUseController extends Controller
     {
         // dd(ActualUse::paginate(15));
         return view('pages.actual-use.index', [
-            'actual_uses' => ActualUse::paginate(1),
+            'actual_uses' => ActualUse::paginate(15),
         ]);
     }
 

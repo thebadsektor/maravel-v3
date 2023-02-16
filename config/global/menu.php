@@ -230,7 +230,7 @@ return array(
                     ),
                     array(
                         'title'  => 'Additional Item',
-                        'path'   => 'account/settings',
+                        'path'   => 'items',
                         'bullet' => '<span class="bullet bullet-dot"></span>',
                     ),
                     array(
