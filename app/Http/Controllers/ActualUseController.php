@@ -15,7 +15,7 @@ class ActualUseController extends Controller
     public function index()
     {
         // dd(ActualUse::paginate(15));
-        return view('pages.actual-uses.index', [
+        return view('pages.actual-use.index', [
             'actual_uses' => ActualUse::paginate(1),
         ]);
     }
@@ -27,7 +27,7 @@ class ActualUseController extends Controller
      */
     public function create()
     {
-        return view('pages.actual-uses.create');
+        return view('pages.actual-use.create');
     }
 
     /**
@@ -55,7 +55,7 @@ class ActualUseController extends Controller
      */
     public function show(ActualUse $actualUse)
     {
-        return view('pages.actual-uses.show')->with('actualUse', $actualUse);
+        return view('pages.actual-use.show')->with('actualUse', $actualUse);
     }
 
     /**
@@ -66,7 +66,7 @@ class ActualUseController extends Controller
      */
     public function edit(ActualUse $actualUse)
     {
-        return view('pages.actual-uses.edit')->with('actualUse', $actualUse);
+        return view('pages.actual-use.edit')->with('actualUse', $actualUse);
     }
 
     /**

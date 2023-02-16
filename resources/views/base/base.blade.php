@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 {{--
 Product Name: {{ theme()->getOption('product', 'description') }}
-Author: KeenThemes
+Author: Westframework
 Purchase: {{ theme()->getOption('product', 'purchase') }}
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
+Website: http://www.Westframework.com/
+Contact: support@Westframework.com
+Follow: www.twitter.com/Westframework
+Dribbble: www.dribbble.com/Westframework
+Like: www.facebook.com/Westframework
 License: {{ theme()->getOption('product', 'license') }}
 --}}
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"{!! theme()->printHtmlAttributes('html') !!} {{ theme()->printHtmlClasses('html') }}>
 {{-- begin::Head --}}
 <head>
     <meta charset="utf-8"/>
-    <title>{{ ucfirst(theme()->getOption('meta', 'title')) }} | Keenthemes</title>
+    <title>{{ ucfirst(theme()->getOption('meta', 'title')) }} | Westframework</title>
     <meta name="description" content="{{ ucfirst(theme()->getOption('meta', 'description')) }}"/>
     <meta name="keywords" content="{{ theme()->getOption('meta', 'keywords') }}"/>
     <link rel="canonical" href="{{ ucfirst(theme()->getOption('meta', 'canonical')) }}"/>
@@ -84,7 +84,7 @@ License: {{ theme()->getOption('product', 'license') }}
             } else {
                 document.documentElement.setAttribute("data-theme", "light");
             }
-        }            
+        }
     </script>
     <!--end::Theme mode setup on page load-->
 

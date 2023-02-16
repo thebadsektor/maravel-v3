@@ -1,7 +1,7 @@
 {
-    "name": "keenthemes/metronic-laravel",
+    "name": "westframework/geravel",
     "type": "project",
-    "description": "The Metronic in the Laravel Framework.",
+    "description": "Laravel Framework.",
     "keywords": [
         "framework",
         "laravel"

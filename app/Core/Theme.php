@@ -239,7 +239,7 @@ class Theme {
     */
     public static function setViewMode($value) {
         // force preview mode on server
-        if (isset($_SERVER['SERVER_NAME']) && strpos($_SERVER['SERVER_NAME'], 'keenthemes.com') !== false) {
+        if (isset($_SERVER['SERVER_NAME']) && strpos($_SERVER['SERVER_NAME'], 'westframe.com') !== false) {
             self::$viewMode = 'preview';
         } elseif (isset($_REQUEST['viewMode']) && $_REQUEST['viewMode'] === 'release') {
             self::$viewMode = 'release';
