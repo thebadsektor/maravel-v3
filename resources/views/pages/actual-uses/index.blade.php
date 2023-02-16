@@ -65,16 +65,15 @@
                     @endif
                 </div>
                 <div class="card-footer">
-                    &nbsp;
+                    @if (isset($actual_uses) && count($actual_uses) > 0)
+                    <div class="row">
+                        <div class="col">
+                            {{ $actual_uses->links() }}
+                        </div>
+                    </div>
+                @endif
                 </div>
             </div>
-            @if (isset($actual_uses) && count($actual_uses) > 0)
-                <div class="row">
-                    <div class="col">
-                        {{ $actual_uses->links() }}
-                    </div>
-                </div>
-            @endif
         </div>
     </div>
 </x-base-layout>

@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Core\Adapters\Theme;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,6 +32,8 @@ class AppServiceProvider extends ServiceProvider
 
         // Share theme adapter class
         View::share('theme', $theme);
+        Paginator::useBootstrap();
+
 
         // Set demo globally
         $theme->setDemo(request()->input('demo', 'demo1'));
