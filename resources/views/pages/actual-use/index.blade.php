@@ -47,16 +47,7 @@
                                             <th scope="row">{{ $loop->iteration }}</th>
                                             <td><a href="/actual-use/show/{{ $actual_use->id }}"
                                                     class='mr-3'>{{ ucfirst(trans($actual_use->actual_use)) }}</a></td>
-                                            <td>
-                                                <!--begin::Toggle button-->
-                                                <div class="form-check form-switch form-check-custom form-check-danger form-check-solid">
-                                                    <input class="form-check-input h-20px w-30px" type="checkbox" value="" id="flexSwitchDefault"/>
-                                                    <label class="form-check-label" for="flexSwitchDefault">
-                                                        {{ ucfirst(trans($actual_use->category)) }}
-                                                    </label>
-                                                </div>
-                                                <!--end::Toggle button-->
-                                                </td>
+                                            <td>{{ ucfirst(trans($actual_use->category)) }}</td>
                                             <td>{{ ucfirst(trans($actual_use->description)) }}</td>
                                             <td>{{ $actual_use->created_at }}</td>
                                             <td>{{ $actual_use->updated_at }}</td>

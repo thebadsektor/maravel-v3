@@ -198,10 +198,10 @@ return array(
 
     // Meta
     'meta'    => array(
-        'title'       => 'Metronic - the world\'s #1 selling Bootstrap Admin Theme Ecosystem for HTML, Vue, React, Angular & Laravel',
-        'description' => 'The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue & Laravel versions. Grab your copy now and get life-time updates for free.',
-        'keywords'    => 'Metronic, bootstrap, bootstrap 5, Angular, VueJs, React, Laravel, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon',
-        'canonical'   => 'https://preview.keenthemes.com/metronic8',
+        'title'       => 'RPT-GIS : Real-Property Tax System with Centralized GIS',
+        'description' => 'RPT-GIS is a system used for managing and assessing real property taxes, which incorporates a centralized Geographic Information System (GIS). This system uses GIS to organize and analyze spatial data related to properties, such as land ownership, building footprints, and property values, to help accurately determine the tax value of each property. RPT-GIS allows for efficient tracking and management of property taxes, as well as effective decision-making by Philippine LGUs. The use of GIS enables the system to create maps and visualizations that provide valuable insights into real estate trends and patterns, helping to improve the overall effectiveness of tax assessment and collection processes.',
+        'keywords'    => 'RPT, Real-Property Tax, GIS, Laravel, bootstrap 5',
+        'canonical'   => 'https://www.westframework.com/',
     ),
 
     // General
