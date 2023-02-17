@@ -133,10 +133,10 @@ class AdditionalItemController extends Controller
      * @param  \App\Models\AdditionalItem  $additionalItem
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AdditionalItem $additionalItem)
+    public function destroy(AdditionalItem $item)
     {
-        $additionalItem->delete();
-        return redirect('actual-uses');
+        $item->delete();
+        return redirect('items');
     }
 
     public function batchDestroy(Request $request)
