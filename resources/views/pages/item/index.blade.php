@@ -33,6 +33,7 @@
                                     <tr class="py-5 fw-bold  border-bottom border-gray-300 fs-6">
                                         <th class="min-w-20px" scope="col">#</th>
                                         <th scope="col">Item Name</th>
+                                        <th scope="col">Is Fixed</th>
                                         <th scope="col">Value</th>
                                         <th scope="col">Description</th>
                                         <th scope="col">Date Created</th>
@@ -45,9 +46,10 @@
                                     @foreach ($items as $item)
                                         <tr class="py-5 fw-semibold  border-bottom border-gray-300 fs-6">
                                             <th scope="row">{{ $loop->iteration }}</th>
-                                            <td><a href="/actual-use/show/{{ $item->id }}"
+                                            <td><a href="/item/show/{{ $item->id }}"
                                                     class='mr-3'>{{ ucfirst(trans($item->name)) }}</a></td>
                                             <td>{{ $item->is_fixed }}</td>
+                                            <td>{{ $item->value }}</td>
                                             <td>{{ ucfirst(trans($item->description)) }}</td>
                                             <td>{{ $item->created_at }}</td>
                                             <td>{{ $item->updated_at }}</td>

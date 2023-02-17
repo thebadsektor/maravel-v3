@@ -26,7 +26,6 @@
                                 <input id="name" type="text"
                                     class="form-control @error('name') is-invalid @enderror" name="name"
                                     value="{{ old('name') }}" required autocomplete="name" autofocus>
-
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -39,16 +38,13 @@
                             <label for="is_fixed"
                                 class="col-md-4 col-form-label text-md-end">{{ __('Is Fixed') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="is_fixed" type="text"
-                                    class="form-control @error('is_fixed') is-invalid @enderror" name="is_fixed"
-                                    value="{{ old('is_fixed') }}" required autocomplete="is_fixed" autofocus>
-
-                                @error('is_fixed')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                            <div class="col-md-6 pt-3 pb-3">
+                                <!--begin::Toggle button-->
+                                <div class="form-check form-switch form-check-custom form-check-solid">
+                                    <input id="is_fixed" class="form-check-input h-20px w-30px" name="is_fixed" type="checkbox" {{ old('is_fixed') ? 'checked' : '' }} />
+                                    {{-- <label class="form-check-label" for="flexSwitchDefault">Is Fixed</label> --}}
+                                  </div>
+                                <!--end::Toggle button-->
                             </div>
                         </div>
 
@@ -76,7 +72,7 @@
                             <div class="col-md-6">
                                 <textarea id="description" type="text"
                                     class="form-control @error('description') is-invalid @enderror" name="description"
-                                    value="{{ old('description') }}" required autocomplete="to" autofocus></textarea>
+                                    value="{{ old('description', 'This is an additional item.') }}" autofocus></textarea>
 
                                 @error('description')
                                     <span class="invalid-feedback" role="alert">

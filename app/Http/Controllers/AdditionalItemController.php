@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AdditionalItem;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\PseudoTypes\False_;
 
 class AdditionalItemController extends Controller
 {
@@ -37,7 +38,32 @@ class AdditionalItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        if($request->is_fixed != null)
+        {
+            $isFixed = 1;
+        }else{
+            $isFixed = 0;
+        }
+
+        $this->validate($request, [
+            'name' => 'required|min:3|max:50',
+            'value' => 'required|numeric'
+        ]);
+
+        if($request->description == null)
+        {
+            $description = "This is an additional item.";
+        }
+
+        AdditionalItem::create([
+            'name' => $request->name,
+            'is_fixed' => $isFixed,
+            'value' => $request->value,
+            'description' => $description,
+        ]);
+
+        return redirect('items');
     }
 
     /**
@@ -46,9 +72,10 @@ class AdditionalItemController extends Controller
      * @param  \App\Models\AdditionalItem  $additionalItem
      * @return \Illuminate\Http\Response
      */
-    public function show(AdditionalItem $additionalItem)
+    public function show(AdditionalItem $item)
     {
-        //
+        //dd($item);
+        return view('pages.item.show')->with('item', $item);
     }
 
     /**
@@ -57,9 +84,10 @@ class AdditionalItemController extends Controller
      * @param  \App\Models\AdditionalItem  $additionalItem
      * @return \Illuminate\Http\Response
      */
-    public function edit(AdditionalItem $additionalItem)
+    public function edit(AdditionalItem $item)
     {
-        //
+        // dd($item);
+        return view('pages.item.edit')->with('item', $item);
     }
 
     /**
@@ -69,9 +97,34 @@ class AdditionalItemController extends Controller
      * @param  \App\Models\AdditionalItem  $additionalItem
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AdditionalItem $additionalItem)
+    public function update(Request $request, AdditionalItem $item)
     {
-        //
+        if($request->is_fixed != null)
+        {
+            $isFixed = 1;
+        }else{
+            $isFixed = 0;
+        }
+
+        $this->validate($request, [
+            'name' => 'required|min:3|max:50',
+            'value' => 'required|numeric'
+        ]);
+
+        if($request->description == null)
+        {
+            $description = "This is an additional item.";
+        }else{
+            $description = $request->description;
+        }
+
+        $item->update([
+            'name' => $request->name,
+            'is_fixed' => $isFixed,
+            'value' => $request->value,
+            'description' => $description
+        ]);
+        return redirect('/item/show/'.$item->id);
     }
 
     /**
@@ -82,6 +135,18 @@ class AdditionalItemController extends Controller
      */
     public function destroy(AdditionalItem $additionalItem)
     {
-        //
+        $additionalItem->delete();
+        return redirect('actual-uses');
+    }
+
+    public function batchDestroy(Request $request)
+    {
+        $ids = $request->input('ids');
+        AdditionalItem::destroy($ids);
+
+        if($ids == null){
+            return back()->with('error', 'The error message here!');
+        }
+        return redirect()->back();
     }
 }

@@ -55,6 +55,7 @@ class ActualUseController extends Controller
      */
     public function show(ActualUse $actualUse)
     {
+        // dd($actualUse);
         return view('pages.actual-use.show')->with('actualUse', $actualUse);
     }
 

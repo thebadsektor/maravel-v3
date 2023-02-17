@@ -4,7 +4,7 @@
             <div class="card shadow-sm">
                 <div class="card-header">
                     <h3 class="card-title">
-                        <a style="margin-right: 1rem" href="{{ route('actual-uses') }}">
+                        <a style="margin-right: 1rem" href="{{ route('items') }}">
                             <!--begin::Svg Icon | path: /var/www/preview.keenthemes.com/kt-products/docs/metronic/html/releases/2023-01-26-051612/core/html/src/media/icons/duotune/arrows/arr079.svg-->
                             <span class="svg-icon svg-icon-muted svg-icon-2hx"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path opacity="0.5" d="M14.2657 11.4343L18.45 7.25C18.8642 6.83579 18.8642 6.16421 18.45 5.75C18.0358 5.33579 17.3642 5.33579 16.95 5.75L11.4071 11.2929C11.0166 11.6834 11.0166 12.3166 11.4071 12.7071L16.95 18.25C17.3642 18.6642 18.0358 18.6642 18.45 18.25C18.8642 17.8358 18.8642 17.1642 18.45 16.75L14.2657 12.5657C13.9533 12.2533 13.9533 11.7467 14.2657 11.4343Z" fill="currentColor"/>
@@ -13,7 +13,7 @@
                             </span>
                             <!--end::Svg Icon-->
                         </a>
-                        {{ ucfirst(trans($actualUse->actual_use)) }}
+                        {{ ucfirst(trans($item->name)) }}
                     </h3>
                     <div class="card-toolbar">
                         <button type="button" class="btn btn-sm btn-light">
@@ -27,30 +27,42 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form method="GET" action="/actual-use/edit/{{ $actualUse->id }}">
+                    <form method="GET" action="/item/edit/{{ $item->id }}">
                         <div class="row mb-3">
                             <div class="col-md-4">
-                                <p>Actual Use</p>
+                                <p>Item Name</p>
                             </div>
                             <div class="col-md-6">
-                                <p>{{ ucfirst(trans($actualUse->actual_use)) }}</p>
+                                <p>{{ ucfirst(trans($item->name)) }}</p>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <div class="col-md-4">
-                                <p>Category</p>
+                                <p>Is Fixed</p>
                             </div>
                             <div class="col-md-6">
-                                <p>{{ ucfirst(trans($actualUse->category)) }}</p>
+                                <div class="form-check form-switch form-check-custom form-check-solid">
+                                    <input id="is_fixed" class="form-check-input h-20px w-30px" name="is_fixed" type="checkbox" {{ $item->is_fixed == 1 ? 'checked' : '' }} @disabled(true) />
+                                    {{-- <label class="form-check-label" for="flexSwitchDefault">Is Fixed</label> --}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <p>Unit Value</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{ $item->value }}</p>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-4">
-                                <p class="float-right">Description</p>
+                                <p>Description</p>
                             </div>
                             <div class="col-md-6">
-                                <p>{{ ucfirst(trans($actualUse->description)) }}</p>
+                                <p>{{ ucfirst(trans($item->description)) }}</p>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -58,7 +70,7 @@
                                 <p>Date Created</p>
                             </div>
                             <div class="col-md-6">
-                                <p>{{ $actualUse->created_at }}</p>
+                                <p>{{ $item->created_at }}</p>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -66,7 +78,7 @@
                                 <p>Date Updated</p>
                             </div>
                             <div class="col-md-6">
-                                <p>{{ $actualUse->updated_at }}</p>
+                                <p>{{ $item->updated_at }}</p>
                             </div>
                         </div>
                         <div class="row mb-0">
